@@ -3,7 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 void main() {
-  runApp(TodoApp());
+  runApp(const TodoApp());
 }
 
 class TodoApp extends StatelessWidget {
@@ -13,7 +13,19 @@ class TodoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TodoHome(),
+      title: 'To-Do App',
+      theme: ThemeData.light(useMaterial3: true),
+      darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
+        colorScheme: ColorScheme.dark(
+          primary: Colors.tealAccent,
+          surface: Colors.blueGrey,
+        ),
+        scaffoldBackgroundColor: Colors.grey[900],
+        cardColor: Colors.grey[850],
+        shadowColor: Colors.white24,
+      ),
+      themeMode: ThemeMode.system,
+      home: const TodoHome(),
     );
   }
 }
@@ -40,13 +52,14 @@ class _TodoHomeState extends State<TodoHome> {
   Future<void> _loadTasks() async {
     List<Map<String, dynamic>> tasks = await _dbHelper.getTasks();
     setState(() {
-      _tasks.clear();
-      _tasks.addAll(tasks.map((task) => {
-            'id': task['id'],
-            'task': task['task'],
-            'completed':
-                (task['completed'] as int) == 1, // ✅ Convert int to bool
-          }));
+      _tasks
+        ..clear()
+        ..addAll(tasks.map((task) => {
+              'id': task['id'],
+              'task': task['task'],
+              'completed': (task['completed'] as int) == 1,
+            }))
+        ..sort((a, b) => a['completed'] ? 1 : -1);
     });
   }
 
@@ -64,9 +77,7 @@ class _TodoHomeState extends State<TodoHome> {
     int taskId = _tasks[index]['id'];
     bool newStatus = !_tasks[index]['completed'];
     await _dbHelper.updateTaskStatus(taskId, newStatus);
-    setState(() {
-      _tasks[index]['completed'] = newStatus;
-    });
+    _loadTasks();
   }
 
   void _deleteTask(int index) async {
@@ -80,62 +91,122 @@ class _TodoHomeState extends State<TodoHome> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('To-Do App')),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      labelText: 'Enter a task',
-                      border: OutlineInputBorder(),
-                    ),
+      appBar: AppBar(
+        title: const Text('To-Do List',
+            style: TextStyle(fontWeight: FontWeight.bold)),
+        centerTitle: true,
+        backgroundColor: Theme.of(context).brightness == Brightness.dark
+            ? Colors.tealAccent[700]
+            : Colors.blue,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: [
+            TextField(
+              controller: _controller,
+              decoration: InputDecoration(
+                labelText: 'Enter a task',
+                labelStyle: TextStyle(
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.tealAccent
+                      : Colors.blue,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.tealAccent
+                        : Colors.blue,
+                    width: 2,
                   ),
                 ),
-                SizedBox(width: 8),
-                ElevatedButton(
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.tealAccent
+                        : Colors.blue,
+                    width: 2,
+                  ),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                  borderSide: BorderSide(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.greenAccent
+                        : Colors.blueAccent,
+                    width: 2,
+                  ),
+                ),
+                suffixIcon: IconButton(
+                  icon: Icon(Icons.add_circle,
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.tealAccent
+                          : Colors.blue),
                   onPressed: () => _addTask(_controller.text),
-                  child: Text('Add'),
                 ),
-              ],
+              ),
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: _tasks.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  leading: Checkbox(
-                    value: _tasks[index]['completed'],
-                    onChanged: (value) => _toggleTask(index),
-                  ),
-                  title: Text(
-                    _tasks[index]['task'],
-                    style: TextStyle(
-                      decoration: _tasks[index]['completed']
-                          ? TextDecoration.lineThrough
-                          : null,
+            const SizedBox(height: 12),
+            Expanded(
+              child: _tasks.isEmpty
+                  ? const Center(
+                      child: Text("No tasks yet, add some!",
+                          style: TextStyle(fontSize: 16)))
+                  : ListView.builder(
+                      itemCount: _tasks.length,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.grey[650]
+                              : Colors.white,
+                          elevation: 4,
+                          shadowColor:
+                              Theme.of(context).brightness == Brightness.dark
+                                  ? Colors.white24
+                                  : Colors.black87,
+                          child: ListTile(
+                            leading: Checkbox(
+                              value: _tasks[index]['completed'],
+                              onChanged: (value) => _toggleTask(index),
+                            ),
+                            title: Text(
+                              _tasks[index]['task'],
+                              style: TextStyle(
+                                fontSize: 18,
+                                decoration: _tasks[index]['completed']
+                                    ? TextDecoration.lineThrough
+                                    : null,
+                                decorationColor: _tasks[index]['completed']
+                                    ? Colors.tealAccent
+                                    : null,
+                                decorationThickness:
+                                    _tasks[index]['completed'] ? 3 : 0,
+                                color: _tasks[index]['completed']
+                                    ? Colors.tealAccent
+                                    : null,
+                              ),
+                            ),
+                            trailing: IconButton(
+                              icon: const Icon(Icons.delete,
+                                  color: Colors.redAccent),
+                              onPressed: () => _deleteTask(index),
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  ),
-                  trailing: IconButton(
-                    icon: Icon(Icons.delete, color: Colors.red),
-                    onPressed: () => _deleteTask(index),
-                  ),
-                );
-              },
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
 }
 
-// Database Helper Class
 class DatabaseHelper {
   static const String tableName = 'tasks';
 
