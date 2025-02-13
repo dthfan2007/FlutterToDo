@@ -1,0 +1,16 @@
+{
+    "@@locale": "ja",
+    "settings": "設定",
+    "theme": "テーマ",
+    "selectTheme": "アプリのテーマを選択",
+    "lightMode": "ライトモード",
+    "darkMode": "ダークモード",
+    "systemDefault": "システム設定に従う",
+    "language": "言語",
+    "selectLanguage": "アプリの言語を選択",
+    "todoList": "ToDo リスト",
+    "enterTask": "タスクを入力",
+    "editTask": "タスクを編集",
+    "noTasks": "タスクがありません。新しいタスクを追加してください。",
+    "todo": "TODO"
+}

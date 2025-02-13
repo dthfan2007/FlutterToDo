@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'todo_home.dart';
 import 'settings.dart';
 
@@ -35,6 +37,7 @@ class TodoApp extends StatefulWidget {
 
 class _TodoAppState extends State<TodoApp> {
   late ThemeMode _themeMode;
+  Locale _locale = Locale('en'); // Default locale
 
   @override
   void initState() {
@@ -45,6 +48,12 @@ class _TodoAppState extends State<TodoApp> {
   void changeTheme(ThemeMode themeMode) {
     setState(() {
       _themeMode = themeMode;
+    });
+  }
+
+  void changeLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
     });
   }
 
@@ -65,6 +74,18 @@ class _TodoAppState extends State<TodoApp> {
         shadowColor: Colors.white24,
       ),
       themeMode: _themeMode,
+      locale: _locale, // Set the locale here
+      supportedLocales: const [
+        Locale('en', ''), // English
+        Locale('ja', ''), // Japanese
+        Locale('es', ''), // Spanish
+        // Add more locales here if needed
+      ],
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
       home: const MainScreen(),
     );
   }
@@ -92,17 +113,20 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    // Correct usage of AppLocalizations
+    final l10n = AppLocalizations.of(context); // Get the localized strings
+
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Tasks',
+            icon: const Icon(Icons.list),
+            label: l10n!.todo, // Use localized string here
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: const Icon(Icons.settings),
+            label: l10n.settings, // Use localized string here
           ),
         ],
         currentIndex: _selectedIndex,

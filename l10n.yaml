@@ -1,0 +1,7 @@
+# @Author: Your name
+# @Date:   13-02-2025 11:32:24
+# @Last Modified by:   Your name
+# @Last Modified time: 13-02-2025 11:32:41
+arb-dir: lib/l10n
+template-arb-file: app_en.arb
+output-localization-file: app_localizations.dart

@@ -1,0 +1,19 @@
+{
+    "@@locale": "en",
+    "settings": "Settings",
+    "theme": "Theme",
+    "selectTheme": "Select app theme",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "systemDefault": "System Default",
+    "language": "Language",
+    "selectLanguage": "Select app language",
+    "todoList": "Todo List",
+    "enterTask": "Enter task",
+    "editTask": "Edit task",
+    "noTasks": "No tasks yet. Add a new task to get started.",
+    "todo": "Todos",
+    "@settings": {
+        "description": "Title for the settings screen"
+    }
+}

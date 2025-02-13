@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Add this import
 
 class TodoHome extends StatefulWidget {
   const TodoHome({super.key});
@@ -91,10 +92,13 @@ class _TodoHomeState extends State<TodoHome> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!; // Access the localization
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('To-Do リスト',
-            style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(l10n.todoList,
+            style: const TextStyle(
+                fontWeight: FontWeight.bold)), // Localized title
         centerTitle: true,
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? Colors.tealAccent[700]
@@ -107,7 +111,9 @@ class _TodoHomeState extends State<TodoHome> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: _editingTaskId != null ? 'タスクを編集' : 'タスクを入力',
+                labelText: _editingTaskId != null
+                    ? l10n.editTask
+                    : l10n.enterTask, // Localized text
                 labelStyle: TextStyle(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.tealAccent
@@ -163,9 +169,11 @@ class _TodoHomeState extends State<TodoHome> {
             const SizedBox(height: 12),
             Expanded(
               child: _tasks.isEmpty
-                  ? const Center(
-                      child: Text("タスクがありません。新しいタスクを追加してください。",
-                          style: TextStyle(fontSize: 16)))
+                  ? Center(
+                      child: Text(l10n.noTasks,
+                          style: const TextStyle(
+                              fontSize: 16)), // Localized no tasks message
+                    )
                   : ListView.builder(
                       itemCount: _tasks.length,
                       itemBuilder: (context, index) {
@@ -241,6 +249,8 @@ class _TodoHomeState extends State<TodoHome> {
     );
   }
 }
+
+// Rest of the code remains the same
 
 class DatabaseHelper {
   static const String tableName = 'tasks';
