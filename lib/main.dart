@@ -43,6 +43,16 @@ class _TodoAppState extends State<TodoApp> {
   void initState() {
     super.initState();
     _themeMode = widget.initialThemeMode;
+    _loadSavedLocale();
+  }
+
+  Future<void> _loadSavedLocale() async {
+    final prefs = await SharedPreferences.getInstance();
+    final savedLocale =
+        prefs.getString('locale') ?? 'en'; // Default to 'en' if not found
+    setState(() {
+      _locale = Locale(savedLocale);
+    });
   }
 
   void changeTheme(ThemeMode themeMode) {
@@ -51,7 +61,10 @@ class _TodoAppState extends State<TodoApp> {
     });
   }
 
-  void changeLocale(Locale locale) {
+  void changeLocale(Locale locale) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(
+        'locale', locale.languageCode); // Save the locale code
     setState(() {
       _locale = locale;
     });
