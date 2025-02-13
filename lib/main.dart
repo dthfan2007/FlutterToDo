@@ -41,6 +41,7 @@ class _TodoHomeState extends State<TodoHome> {
   final TextEditingController _controller = TextEditingController();
   final List<Map<String, dynamic>> _tasks = [];
   late DatabaseHelper _dbHelper;
+  int? _editingTaskId; // To keep track of the task being edited
 
   @override
   void initState() {
@@ -85,6 +86,40 @@ class _TodoHomeState extends State<TodoHome> {
     await _dbHelper.deleteTask(taskId);
     setState(() {
       _tasks.removeAt(index);
+      if (_editingTaskId == taskId) {
+        _editingTaskId =
+            null; // Clear the editing task ID when the task is deleted
+      }
+    });
+  }
+
+  void _updateTask() async {
+    if (_controller.text.isNotEmpty && _editingTaskId != null) {
+      // Ensure the task still exists in the list
+      final taskIndex =
+          _tasks.indexWhere((task) => task['id'] == _editingTaskId);
+      if (taskIndex != -1) {
+        await _dbHelper.updateTaskStatus(_editingTaskId!,
+            true); // Update as completed or not, can be expanded
+        setState(() {
+          // Update task in the list and reset controller
+          _tasks[taskIndex]['task'] = _controller.text;
+          _editingTaskId = null;
+        });
+        _controller.clear();
+      } else {
+        // Task was deleted, so clear editing state
+        _editingTaskId = null;
+        _controller.clear();
+      }
+    }
+  }
+
+  // Handle editing a task
+  void _editTask(int index) {
+    setState(() {
+      _editingTaskId = _tasks[index]['id'];
+      _controller.text = _tasks[index]['task']; // Load task into controller
     });
   }
 
@@ -106,7 +141,8 @@ class _TodoHomeState extends State<TodoHome> {
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'Enter a task',
+                labelText:
+                    _editingTaskId != null ? 'Edit task' : 'Enter a task',
                 labelStyle: TextStyle(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.tealAccent
@@ -140,13 +176,24 @@ class _TodoHomeState extends State<TodoHome> {
                   ),
                 ),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.add_circle,
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.tealAccent
-                          : Colors.blue),
-                  onPressed: () => _addTask(_controller.text),
+                  icon: Icon(
+                    _editingTaskId != null ? Icons.save : Icons.add_circle,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.tealAccent
+                        : Colors.blue,
+                  ),
+                  onPressed: _editingTaskId != null
+                      ? _updateTask
+                      : () => _addTask(_controller.text),
                 ),
               ),
+              onSubmitted: (text) {
+                if (_editingTaskId != null) {
+                  _updateTask();
+                } else {
+                  _addTask(text);
+                }
+              },
             ),
             const SizedBox(height: 12),
             Expanded(
@@ -158,45 +205,68 @@ class _TodoHomeState extends State<TodoHome> {
                       itemCount: _tasks.length,
                       itemBuilder: (context, index) {
                         return Card(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10)),
-                          color: Theme.of(context).brightness == Brightness.dark
-                              ? Colors.grey[650]
-                              : Colors.white,
-                          elevation: 4,
-                          shadowColor:
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? Colors.white24
-                                  : Colors.black87,
-                          child: ListTile(
-                            leading: Checkbox(
-                              value: _tasks[index]['completed'],
-                              onChanged: (value) => _toggleTask(index),
-                            ),
-                            title: Text(
-                              _tasks[index]['task'],
-                              style: TextStyle(
-                                fontSize: 18,
-                                decoration: _tasks[index]['completed']
-                                    ? TextDecoration.lineThrough
-                                    : null,
-                                decorationColor: _tasks[index]['completed']
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
+                            color:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.grey[650]
+                                    : Colors.white,
+                            elevation: 4,
+                            shadowColor:
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? Colors.white24
+                                    : Colors.black87,
+                            child: ListTile(
+                              leading: Checkbox(
+                                value: _tasks[index]['completed'],
+                                onChanged: (value) => _toggleTask(index),
+                                activeColor: Theme.of(context).brightness ==
+                                        Brightness.dark
                                     ? Colors.tealAccent
-                                    : null,
-                                decorationThickness:
-                                    _tasks[index]['completed'] ? 3 : 0,
-                                color: _tasks[index]['completed']
-                                    ? Colors.tealAccent
-                                    : null,
+                                    : Colors.blue,
                               ),
-                            ),
-                            trailing: IconButton(
-                              icon: const Icon(Icons.delete,
-                                  color: Colors.redAccent),
-                              onPressed: () => _deleteTask(index),
-                            ),
-                          ),
-                        );
+                              title: Text(
+                                _tasks[index]['task'],
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  decoration: _tasks[index]['completed']
+                                      ? TextDecoration.lineThrough
+                                      : null,
+                                  decorationColor: _tasks[index]['completed']
+                                      ? Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.tealAccent
+                                          : Colors.blue
+                                      : null,
+                                  decorationThickness:
+                                      _tasks[index]['completed'] ? 3 : 0,
+                                  color: _tasks[index]['completed']
+                                      ? Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.tealAccent
+                                          : Colors.blue
+                                      : null,
+                                ),
+                              ),
+                              trailing: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  IconButton(
+                                    icon: Icon(Icons.edit,
+                                        color: Theme.of(context).brightness ==
+                                                Brightness.dark
+                                            ? Colors.tealAccent
+                                            : Colors.blue),
+                                    onPressed: () => _editTask(index),
+                                  ),
+                                  IconButton(
+                                    icon: const Icon(Icons.delete,
+                                        color: Colors.redAccent),
+                                    onPressed: () => _deleteTask(index),
+                                  ),
+                                ],
+                              ),
+                            ));
                       },
                     ),
             ),
