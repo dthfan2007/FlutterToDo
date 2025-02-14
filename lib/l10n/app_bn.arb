@@ -1,7 +1,7 @@
 {
     "@@locale": "bn",
-    "settings": "Settings",
-    "theme": "Theme",
+    "settings": "সেটিংস",
+    "theme": "থিম",
     "selectTheme": "অ্যাপ থিম নির্বাচন করুন",
     "lightMode": "হালকা মোড",
     "darkMode": "ডার্ক মোড",
