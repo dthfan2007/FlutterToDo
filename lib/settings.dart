@@ -57,30 +57,35 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.brightness_6),
             title: Text(l10n.theme),
-            subtitle: Text(l10n.selectTheme),
-            trailing: DropdownButton<ThemeMode>(
-              value: _selectedThemeMode,
-              onChanged: (ThemeMode? newValue) {
-                if (newValue != null) {
-                  setState(() {
-                    _selectedThemeMode = newValue;
-                  });
-                  _saveThemeMode(newValue);
-                  TodoApp.of(context).changeTheme(newValue);
-                }
-              },
-              items: [
-                DropdownMenuItem(
-                  value: ThemeMode.light,
-                  child: Text(l10n.lightMode),
-                ),
-                DropdownMenuItem(
-                  value: ThemeMode.dark,
-                  child: Text(l10n.darkMode),
-                ),
-                DropdownMenuItem(
-                  value: ThemeMode.system,
-                  child: Text(l10n.systemDefault),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.selectTheme),
+                DropdownButton<ThemeMode>(
+                  value: _selectedThemeMode,
+                  onChanged: (ThemeMode? newValue) {
+                    if (newValue != null) {
+                      setState(() {
+                        _selectedThemeMode = newValue;
+                      });
+                      _saveThemeMode(newValue);
+                      TodoApp.of(context).changeTheme(newValue);
+                    }
+                  },
+                  items: [
+                    DropdownMenuItem(
+                      value: ThemeMode.light,
+                      child: Text(l10n.lightMode),
+                    ),
+                    DropdownMenuItem(
+                      value: ThemeMode.dark,
+                      child: Text(l10n.darkMode),
+                    ),
+                    DropdownMenuItem(
+                      value: ThemeMode.system,
+                      child: Text(l10n.systemDefault),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -88,240 +93,245 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ListTile(
             leading: const Icon(Icons.language),
             title: Text(l10n.language),
-            subtitle: Text(l10n.selectLanguage),
-            trailing: DropdownButton<Locale>(
-              value: Localizations.localeOf(context),
-              onChanged: (Locale? newValue) {
-                if (newValue != null) {
-                  TodoApp.of(context).changeLocale(newValue);
-                }
-              },
-              items: const [
-                DropdownMenuItem(
-                  value: Locale('te'),
-                  child: Text('Vıoŝ\'a'),
+            subtitle: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(l10n.selectLanguage),
+                DropdownButton<Locale>(
+                  value: Localizations.localeOf(context),
+                  onChanged: (Locale? newValue) {
+                    if (newValue != null) {
+                      TodoApp.of(context).changeLocale(newValue);
+                    }
+                  },
+                  items: const [
+                    DropdownMenuItem(
+                      value: Locale('cs'),
+                      child: Text('Čeština'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('da'),
+                      child: Text('Dansk'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('de'),
+                      child: Text('Deutsch'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('et'),
+                      child: Text('Eesti'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('en'),
+                      child: Text('English'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('es'),
+                      child: Text('Español'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('fil'),
+                      child: Text('Filipino'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('hr'),
+                      child: Text('Hrvatski'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('hu'),
+                      child: Text('Magyar'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('id'),
+                      child: Text('Indonesia'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('is'),
+                      child: Text('Íslenska'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('it'),
+                      child: Text('Italiano'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('lv'),
+                      child: Text('Latviešu'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('lt'),
+                      child: Text('Lietuvių'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('nl'),
+                      child: Text('Nederlands'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('no'),
+                      child: Text('Norsk'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('uz'),
+                      child: Text('O\'zbek (lotin)'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('pl'),
+                      child: Text('Polski'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('pt'),
+                      child: Text('Português'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ro'),
+                      child: Text('Română'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('sk'),
+                      child: Text('Slovenčina'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('sl'),
+                      child: Text('Slovenščina'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('sq'),
+                      child: Text('Shqip'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('fi'),
+                      child: Text('Suomi'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('sv'),
+                      child: Text('Svenska'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('vi'),
+                      child: Text('Tiếng Việt'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('tr'),
+                      child: Text('Türkçe'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('te'),
+                      child: Text('Vıoŝ\'a'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ja'),
+                      child: Text('日本語'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('zh', 'CN'),
+                      child: Text('简体中文'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('zh', 'TW'),
+                      child: Text('繁體中文'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('el'),
+                      child: Text('Eλληνικά'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ru'),
+                      child: Text('Русский'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('be'),
+                      child: Text('Беларуская'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ky'),
+                      child: Text('Кыргызча'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('uk'),
+                      child: Text('Українська'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('mn'),
+                      child: Text('Монгол'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('kk'),
+                      child: Text('Қазақ тілі'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('sr'),
+                      child: Text('Српски (Ћирилица)'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('mk'),
+                      child: Text('Македонски'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('hy'),
+                      child: Text('Հայերեն'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ka'),
+                      child: Text('ქართული'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('he'),
+                      child: Text('עִברִית'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ar'),
+                      child: Text('العربية'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('fa'),
+                      child: Text('فارسی'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ur'),
+                      child: Text('اردو'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('hi'),
+                      child: Text('हिन्दी'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ne'),
+                      child: Text('नेपाली'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('gu'),
+                      child: Text('ગુજરાતી'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('or'),
+                      child: Text('ଓଡ଼ିଆ'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ta'),
+                      child: Text('தமிழ்'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('bn'),
+                      child: Text('বাংলা'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('my'),
+                      child: Text('မြန်မာ'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('th'),
+                      child: Text('ไทย'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('lo'),
+                      child: Text('ພາສາລາວ'),
+                    ),
+                    DropdownMenuItem(
+                      value: Locale('ko'),
+                      child: Text('한국어'),
+                    ),
+                    // Add more languages here
+                  ],
                 ),
-                DropdownMenuItem(
-                  value: Locale('ar'),
-                  child: Text('عربي'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('be'),
-                  child: Text('Belarusian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('bn'),
-                  child: Text('Bengali'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('cs'),
-                  child: Text('Czech'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('da'),
-                  child: Text('Danish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('de'),
-                  child: Text('German'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('el'),
-                  child: Text('Greek'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('en'),
-                  child: Text('English'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('es'),
-                  child: Text('Spanish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('et'),
-                  child: Text('Estonian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('fa'),
-                  child: Text('Persian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('fi'),
-                  child: Text('Finnish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('fil'),
-                  child: Text('Filipino'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('gu'),
-                  child: Text('Gujarati'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('he'),
-                  child: Text('Hebrew'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('hi'),
-                  child: Text('Hindi'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('hr'),
-                  child: Text('Croatian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('hu'),
-                  child: Text('Hungarian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('hy'),
-                  child: Text('Armenian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('id'),
-                  child: Text('Indonesian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('is'),
-                  child: Text('Icelandic'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('it'),
-                  child: Text('Italian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ja'),
-                  child: Text('Japanese'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ka'),
-                  child: Text('Georgian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('kk'),
-                  child: Text('Kazakh'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ko'),
-                  child: Text('Korean'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ky'),
-                  child: Text('Kyrgyz'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('lo'),
-                  child: Text('lao'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('lt'),
-                  child: Text('lithuanian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('lv'),
-                  child: Text('latvian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('mk'),
-                  child: Text('macedonian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('mn'),
-                  child: Text('mongolian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('my'),
-                  child: Text('burmese'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ne'),
-                  child: Text('nepali'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('nl'),
-                  child: Text('dutch'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('no'),
-                  child: Text('norwegian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('or'),
-                  child: Text('odia'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('pl'),
-                  child: Text('polish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('pt'),
-                  child: Text('portuguese'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ro'),
-                  child: Text('romanian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ru'),
-                  child: Text('russian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('sk'),
-                  child: Text('slovak'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('sl'),
-                  child: Text('slovenian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('sq'),
-                  child: Text('albanian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('sr'),
-                  child: Text('serbian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('sv'),
-                  child: Text('swedish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ta'),
-                  child: Text('Tamil'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('th'),
-                  child: Text('Thai'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('tr'),
-                  child: Text('Turkish'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('uk'),
-                  child: Text('Ukrainian'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('ur'),
-                  child: Text('Urdu'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('uz'),
-                  child: Text('Uzbek'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('vi'),
-                  child: Text('Vietnamese'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('zh', 'CN'),
-                  child: Text('Simplified Chinese'),
-                ),
-                DropdownMenuItem(
-                  value: Locale('zh', 'TW'),
-                  child: Text('Traditional Chinese'),
-                ),
-                // Add more languages here
               ],
             ),
           ),
