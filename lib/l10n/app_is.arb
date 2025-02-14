@@ -1,0 +1,16 @@
+{
+    "@@locale": "is",
+    "settings": "Stillingar",
+    "theme": "Þema",
+    "selectTheme": "Veldu þema",
+    "lightMode": "Létt þema",
+    "darkMode": "Dökkt þema",
+    "systemDefault": "Sjálfgefið kerfi",
+    "language": "Tungumál",
+    "selectLanguage": "Veldu tungumál",
+    "todoList": "Verkefnalisti",
+    "enterTask": "Sláðu inn nýtt verkefni",
+    "editTask": "Breyttu þessu verkefni",
+    "noTasks": "Engin verkefni ennþá. Bættu við nýju verkefni til að byrja.",
+    "todo": "Verkefni"
+}

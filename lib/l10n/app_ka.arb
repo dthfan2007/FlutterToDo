@@ -1,0 +1,16 @@
+{
+    "@@locale": "ka",
+    "settings": "პარამეტრები",
+    "theme": "თემა",
+    "selectTheme": "აირჩიე აპის თემა",
+    "lightMode": "Light Mode",
+    "darkMode": "Dark Mode",
+    "systemDefault": "სისტემის ნაგულისხმევი",
+    "language": "ენა",
+    "selectLanguage": "აირჩიე აპის ენა",
+    "todoList": "სამუშაოების სია",
+    "enterTask": "შეიყვანეთ დავალება",
+    "editTask": "დავალების რედაქტირება",
+    "noTasks": "დავალებები ჯერ არ არის. დასაწყებად დაამატეთ ახალი დავალება.",
+    "todo": "დავალებები"
+}

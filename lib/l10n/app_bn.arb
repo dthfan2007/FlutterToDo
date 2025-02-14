@@ -1,0 +1,16 @@
+{
+    "@@locale": "bn",
+    "settings": "Settings",
+    "theme": "Theme",
+    "selectTheme": "অ্যাপ থিম নির্বাচন করুন",
+    "lightMode": "হালকা মোড",
+    "darkMode": "ডার্ক মোড",
+    "systemDefault": "সিস্টেম ডিফল্ট",
+    "language": "ভাষা",
+    "selectLanguage": "অ্যাপ ভাষা নির্বাচন করুন",
+    "todoList": "Todo List",
+    "enterTask": "টাস্ক লিখুন",
+    "editTask": "টাস্ক সম্পাদনা করুন",
+    "noTasks": "এখনও কোনও কাজ নেই। শুরু করার জন্য একটি নতুন কাজ যোগ করুন।",
+    "todo": "টাস্ক"
+}

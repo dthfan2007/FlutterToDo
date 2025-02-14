@@ -12,8 +12,5 @@
     "enterTask": "Enter task",
     "editTask": "Edit task",
     "noTasks": "No tasks yet. Add a new task to get started.",
-    "todo": "Todos",
-    "@settings": {
-        "description": "Title for the settings screen"
-    }
+    "todo": "Tasks"
 }

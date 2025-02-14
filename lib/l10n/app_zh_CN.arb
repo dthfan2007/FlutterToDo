@@ -1,0 +1,16 @@
+{
+    "@@locale": "zh_CN",
+    "settings": "设置",
+    "theme": "主题",
+    "selectTheme": "选择一个主题",
+    "lightMode": "灯光模式",
+    "darkMode": "暗模式",
+    "systemDefault": "系统默认",
+    "language": "语言",
+    "selectLanguage": "选择语言",
+    "todoList": "待办事项清单",
+    "enterTask": "输入新任务",
+    "editTask": "编辑这个任务",
+    "noTasks": "尚无任务。添加新任务即可开始。",
+    "todo": "待办事项"
+}

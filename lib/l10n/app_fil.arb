@@ -1,0 +1,16 @@
+{
+    "@@locale": "fil",
+    "settings": "Mga setting",
+    "theme": "Tema",
+    "selectTheme": "Pumili ng tema",
+    "lightMode": "Banayad na tema",
+    "darkMode": "Madilim na tema",
+    "systemDefault": "Default ng system",
+    "language": "Wika",
+    "selectLanguage": "Pumili ng wika",
+    "todoList": "Listahan ng gagawin",
+    "enterTask": "Magpasok ng bagong gawain",
+    "editTask": "I-edit ang gawaing ito",
+    "noTasks": "Wala pang gawain. Magdagdag ng bagong gawain upang makapagsimula.",
+    "todo": "Gagawin"
+}

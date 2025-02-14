@@ -1,0 +1,16 @@
+{
+    "@@locale": "th",
+    "settings": "การตั้งค่า",
+    "theme": "ออกแบบ",
+    "selectTheme": "เลือกธีม",
+    "lightMode": "โหมดแสง",
+    "darkMode": "โหมดมืด",
+    "systemDefault": "ระบบค่าเริ่มต้น",
+    "language": "ภาษา",
+    "selectLanguage": "เลือกภาษา",
+    "todoList": "รายการสิ่งที่ต้องทำ",
+    "enterTask": "เข้าสู่ภารกิจใหม่",
+    "editTask": "เข้าสู่ภารกิจนี้",
+    "noTasks": "ยังไม่มีงาน เพิ่มงานใหม่เพื่อเริ่มต้น",
+    "todo": "ภารกิจ"
+}

@@ -1,0 +1,16 @@
+{
+    "@@locale": "tr",
+    "settings": "Ayarlar",
+    "theme": "Tema",
+    "selectTheme": "Uygulama temasını seç",
+    "lightMode": "Açık Mod",
+    "darkMode": "Koyu Mod",
+    "systemDefault": "Sistem Varsayılanı",
+    "language": "Dil",
+    "selectLanguage": "Uygulama dilini seç",
+    "todoList": "Yapılacaklar Listesi",
+    "enterTask": "Görev gir",
+    "editTask": "Görevi düzenle",
+    "noTasks": "Henüz görev yok. Başlamak için yeni bir görev ekleyin.",
+    "todo": "Görevler"
+}

@@ -37,7 +37,7 @@ class TodoApp extends StatefulWidget {
 
 class _TodoAppState extends State<TodoApp> {
   late ThemeMode _themeMode;
-  Locale _locale = Locale('en'); // Default locale
+  Locale _locale = Locale('te'); // Default locale
 
   @override
   void initState() {
@@ -49,7 +49,7 @@ class _TodoAppState extends State<TodoApp> {
   Future<void> _loadSavedLocale() async {
     final prefs = await SharedPreferences.getInstance();
     final savedLocale =
-        prefs.getString('locale') ?? 'en'; // Default to 'en' if not found
+        prefs.getString('locale') ?? 'te'; // Default to 'en' if not found
     setState(() {
       _locale = Locale(savedLocale);
     });
@@ -89,10 +89,62 @@ class _TodoAppState extends State<TodoApp> {
       themeMode: _themeMode,
       locale: _locale, // Set the locale here
       supportedLocales: const [
-        Locale('en', ''), // English
-        Locale('ja', ''), // Japanese
-        Locale('es', ''), // Spanish
-        // Add more locales here if needed
+        Locale('te'),
+        Locale('ar'),
+        Locale('be'),
+        Locale('bn'),
+        Locale('cs'),
+        Locale('da'),
+        Locale('de'),
+        Locale('el'),
+        Locale('en'),
+        Locale('es'),
+        Locale('et'),
+        Locale('fa'),
+        Locale('fi'),
+        Locale('fil'),
+        Locale('gu'),
+        Locale('he'),
+        Locale('hi'),
+        Locale('hr'),
+        Locale('hu'),
+        Locale('hy'),
+        Locale('id'),
+        Locale('is'),
+        Locale('it'),
+        Locale('ja'),
+        Locale('ka'),
+        Locale('kk'),
+        Locale('ko'),
+        Locale('ky'),
+        Locale('lo'),
+        Locale('lt'),
+        Locale('lv'),
+        Locale('mk'),
+        Locale('mn'),
+        Locale('my'),
+        Locale('ne'),
+        Locale('nl'),
+        Locale('no'),
+        Locale('or'),
+        Locale('pl'),
+        Locale('pt'),
+        Locale('ro'),
+        Locale('ru'),
+        Locale('sk'),
+        Locale('sl'),
+        Locale('sq'),
+        Locale('sr'),
+        Locale('sv'),
+        Locale('ta'),
+        Locale('th'),
+        Locale('tr'),
+        Locale('uk'),
+        Locale('ur'),
+        Locale('uz'),
+        Locale('vi'),
+        Locale('zh', 'CN'),
+        Locale('zh', 'TW'),
       ],
       localizationsDelegates: const [
         AppLocalizations.delegate,

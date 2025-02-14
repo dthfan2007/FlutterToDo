@@ -1,0 +1,16 @@
+{
+    "@@locale": "cs",
+    "settings": "Nastavení",
+    "theme": "Téma",
+    "selectTheme": "Vyberte téma",
+    "lightMode": "Světlé téma",
+    "darkMode": "Tmavé téma",
+    "systemDefault": "Výchozí nastavení systému",
+    "language": "Jazyk",
+    "selectLanguage": "Vyberte jazyk",
+    "todoList": "Seznam úkolů",
+    "enterTask": "Zadejte nový úkol",
+    "editTask": "Upravte tento úkol",
+    "noTasks": "Zatím žádné úkoly. Začněte přidáním nového úkolu",
+    "todo": "Úkoly"
+}

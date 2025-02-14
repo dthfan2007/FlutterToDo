@@ -1,0 +1,16 @@
+{
+    "@@locale": "da",
+    "settings": "Indstillinger",
+    "theme": "Tema",
+    "selectTheme": "Vælg et tema",
+    "lightMode": "Lyst tema",
+    "darkMode": "Mørkt tema",
+    "systemDefault": "System standard",
+    "language": "Sprog",
+    "selectLanguage": "Vælg et sprog",
+    "todoList": "To-Do liste",
+    "enterTask": "Indtast en ny opgave",
+    "editTask": "Rediger denne opgave",
+    "noTasks": "Ingen opgaver, endnuilføj en ny opgave for at komme i gango",
+    "todo": "Opgaver"
+}

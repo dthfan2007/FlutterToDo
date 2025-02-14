@@ -1,0 +1,16 @@
+{
+    "@@locale": "hr",
+    "settings": "Postavke",
+    "theme": "Tema",
+    "selectTheme": "Odaberite temu",
+    "lightMode": "Lagana tema",
+    "darkMode": "Tamna tema",
+    "systemDefault": "Zadane postavke sustava",
+    "language": "Jezik",
+    "selectLanguage": "Odaberite jezik",
+    "todoList": "Popis obveza",
+    "enterTask": "Unesite novi zadatak",
+    "editTask": "Uredite ovaj zadatak",
+    "noTasks": "Još nema zadataka. Za početak dodajte novi zadatak.",
+    "todo": "Zadaci"
+}

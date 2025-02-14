@@ -1,0 +1,16 @@
+{
+    "@@locale": "ky",
+    "settings": "Орнотуулар",
+    "theme": "Тема",
+    "selectTheme": "Колдонмонун темасын тандоо",
+    "lightMode": "Жарык режими",
+    "darkMode": "Караңгы режим",
+    "systemDefault": "Системанын демейки",
+    "language": "Language",
+    "selectLanguage": "Колдонмонун тилин тандоо",
+    "todoList": "Todo List",
+    "enterTask": "Тапшырма киргиз",
+    "editTask": "Тапсырманы түзөтүү",
+    "noTasks": "Азырынча тапшырма жок. Баштоо үчүн жаңы тапшырма кошуңуз.",
+    "todo": "Тапшырмалар"
+}

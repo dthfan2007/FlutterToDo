@@ -1,0 +1,16 @@
+{
+    "@@locale": "et",
+    "settings": "Seaded",
+    "theme": "Teema",
+    "selectTheme": "Valige teema",
+    "lightMode": "Kerge teema",
+    "darkMode": "Tume teema",
+    "systemDefault": "Süsteemi vaikeseade",
+    "language": "Keel",
+    "selectLanguage": "Valige keel",
+    "todoList": "Ülesannete nimekiri",
+    "enterTask": "Sisestage uus ülesanne",
+    "editTask": "Muutke seda ülesannet",
+    "noTasks": "Ülesandeid veel pole. Alustamiseks lisage uus ülesanne",
+    "todo": "Ülesanded"
+}

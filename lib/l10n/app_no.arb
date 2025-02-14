@@ -1,0 +1,16 @@
+{
+    "@@locale": "no",
+    "settings": "Innstillinger",
+    "theme": "Tema",
+    "selectTheme": "Velg app-tema",
+    "lightMode": "Lysmodus",
+    "darkMode": "Mørk modus",
+    "systemDefault": "Systemstandard",
+    "language": "Språk",
+    "selectLanguage": "Velg appspråk",
+    "todoList": "Gjøremålsliste",
+    "enterTask": "Skriv inn oppgave",
+    "editTask": "Rediger oppgave",
+    "noTasks": "Ingen oppgaver ennå. Legg til en ny oppgave for å komme i gang.",
+    "todo": "Oppgaver"
+}

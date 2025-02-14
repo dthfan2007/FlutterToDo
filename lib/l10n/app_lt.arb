@@ -1,0 +1,16 @@
+{
+    "@@locale": "lt",
+    "settings": "Nustatymai",
+    "theme": "Tema",
+    "selectTheme": "Pasirinkite temą",
+    "lightMode": "Šviesi tema",
+    "darkMode": "Tamsi tema",
+    "systemDefault": "Sistemos numatytasis",
+    "language": "Kalba",
+    "selectLanguage": "Pasirinkite kalbą",
+    "todoList": "Užduočių sąrašas",
+    "enterTask": "Įveskite naują užduotį",
+    "editTask": "Redaguoti šią užduotį",
+    "noTasks": "Užduočių dar nėra. Norėdami pradėti, pridėkite naują užduotį.",
+    "todo": "Užduotys"
+}

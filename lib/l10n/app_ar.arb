@@ -1,0 +1,16 @@
+{
+    "@@locale": "ar",
+    "settings": "إعدادات",
+    "theme": "سمة",
+    "selectTheme": "اختر التصميم",
+    "lightMode": "موضوع خفيف",
+    "darkMode": "موضوع مظلم",
+    "systemDefault": "النظام الافتراضي",
+    "language": "لغة",
+    "selectLanguage": "اختر لغة",
+    "todoList": "قائمة المهام",
+    "enterTask": "أدخل مهمة جديدة",
+    "editTask": "تعديل هذه المهمة",
+    "noTasks": "لا توجد مهام حتى الآن. أضف مهمة جديدة للبدء.",
+    "todo": "المهام"
+}

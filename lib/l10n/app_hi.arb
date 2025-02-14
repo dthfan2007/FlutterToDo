@@ -1,0 +1,16 @@
+{
+    "@@locale": "hi",
+    "settings": "सेटिंग्स",
+    "theme": "थीम",
+    "selectTheme": "ऐप थीम चुनें",
+    "lightMode": "लाइट मोड",
+    "darkMode": "डार्क मोड",
+    "systemDefault": "सिस्टम डिफ़ॉल्ट",
+    "language": "भाषा",
+    "selectLanguage": "ऐप भाषा चुनें",
+    "todoList": "टोडो सूची",
+    "enterTask": "कार्य दर्ज करें",
+    "editTask": "कार्य संपादित करें",
+    "noTasks": "अभी तक कोई कार्य नहीं है। आरंभ करने के लिए एक नया कार्य जोड़ें।",
+    "todo": "कार्य"
+}

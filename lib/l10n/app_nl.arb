@@ -1,0 +1,16 @@
+{
+    "@@locale": "nl",
+    "settings": "Instellingen",
+    "theme": "Thema",
+    "selectTheme": "Selecteer een thema",
+    "lightMode": "Licht thema",
+    "darkMode": "Donker thema",
+    "systemDefault": "Systeemstandaard",
+    "language": "Taal",
+    "selectLanguage": "Selecteer een taal",
+    "todoList": "To-do-lijst",
+    "enterTask": "Voer een nieuwe taak in",
+    "editTask": "Deze taak bewerken",
+    "noTasks": "Nog geen taken. Voeg een nieuwe taak toe om te beginnen.",
+    "todo": "Taken"
+}

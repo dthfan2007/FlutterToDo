@@ -1,0 +1,16 @@
+{
+    "@@locale": "lv",
+    "settings": "Iestatījumi",
+    "theme": "Dizainu",
+    "selectTheme": "Izvēlieties dizainu",
+    "lightMode": "Gaismas dizains",
+    "darkMode": "Tumšs dizains",
+    "systemDefault": "Sistēmas noklusējums",
+    "language": "Valoda",
+    "selectLanguage": "Izvēlieties valodu",
+    "todoList": "Darāmo darbu saraksts",
+    "enterTask": "Ievadiet jaunu uzdevumu",
+    "editTask": "Rediģēt šo uzdevumu",
+    "noTasks": "Vēl nav uzdevumu. Lai sāktu, pievienojiet jaunu uzdevumu.",
+    "todo": "Uzdevumus"
+}

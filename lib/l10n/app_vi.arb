@@ -1,0 +1,16 @@
+{
+    "@@locale": "vi",
+    "settings": "Cài đặt",
+    "theme": "Chủ đề",
+    "selectTheme": "Chọn chủ đề ứng dụng",
+    "lightMode": "Chế độ sáng",
+    "darkMode": "Chế độ tối",
+    "systemDefault": "Mặc định của hệ thống",
+    "language": "Ngôn ngữ",
+    "selectLanguage": "Chọn ngôn ngữ ứng dụng",
+    "todoList": "Danh sách việc cần làm",
+    "enterTask": "Nhập tác vụ",
+    "editTask": "Chỉnh sửa tác vụ",
+    "noTasks": "Chưa có tác vụ nào. Thêm tác vụ mới để bắt đầu.",
+    "todo": "Tác vụ"
+}

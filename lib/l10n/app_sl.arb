@@ -1,0 +1,16 @@
+{
+    "@@locale": "sl",
+    "settings": "Nastavitve",
+    "theme": "Tema",
+    "selectTheme": "Izberi temo aplikacije",
+    "lightMode": "Svetlobni način",
+    "darkMode": "Temni način",
+    "systemDefault": "Sistemska privzeta vrednost",
+    "language": "jezik",
+    "selectLanguage": "Izberite jezik aplikacije",
+    "todoList": "Seznam opravil",
+    "enterTask": "Vnesite opravilo",
+    "editTask": "Uredi opravilo",
+    "noTasks": "Ni še nobenih opravil. Če želite začeti, dodajte novo opravilo.",
+    "todo": "Opravila"
+}

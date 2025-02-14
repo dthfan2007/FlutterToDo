@@ -1,0 +1,16 @@
+{
+    "@@locale": "id",
+    "settings": "Pengaturan",
+    "theme": "Tema",
+    "selectTheme": "Pilih tema",
+    "lightMode": "Tema terang",
+    "darkMode": "Tema gelap",
+    "systemDefault": "Sistem bawaan",
+    "language": "Bahasa",
+    "selectLanguage": "Pilih bahasa",
+    "todoList": "Daftar yang harus dilakukan",
+    "enterTask": "Masukkan tugas baru",
+    "editTask": "Edit tugas ini",
+    "noTasks": "Belum ada tugas. Tambahkan tugas baru untuk memulai.",
+    "todo": "Tugas"
+}

@@ -1,0 +1,16 @@
+{
+    "@@locale": "pl",
+    "settings": "Ustawienia",
+    "theme": "Motyw",
+    "selectTheme": "Wybierz motyw aplikacji",
+    "lightMode": "Tryb jasny",
+    "darkMode": "Tryb ciemny",
+    "systemDefault": "Domyślny system",
+    "language": "język",
+    "selectLanguage": "Wybierz język aplikacji",
+    "todoList": "Lista rzeczy do zrobienia",
+    "enterTask": "Wprowadź zadanie",
+    "editTask": "Edytuj zadanie",
+    "noTasks": "Brak zadań. Dodaj nowe zadanie, aby rozpocząć.",
+    "todo": "Zadania"
+}

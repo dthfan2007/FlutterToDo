@@ -1,0 +1,16 @@
+{
+    "@@locale": "he",
+    "settings": "הגדרות",
+    "theme": "נושא",
+    "selectTheme": "בחר ערכת נושא לאפליקציה",
+    "lightMode": "מצב אור",
+    "darkMode": "מצב כהה",
+    "systemDefault": "ברירת מחדל של המערכת",
+    "language": "שפה",
+    "selectLanguage": "בחר שפת אפליקציה",
+    "todoList": "רשימת משימות",
+    "enterTask": "הזן משימה",
+    "editTask": "ערוך משימה",
+    "noTasks": "עדיין אין משימות. הוסף משימה חדשה כדי להתחיל.",
+    "todo": "משימות"
+}

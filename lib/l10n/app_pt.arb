@@ -1,0 +1,16 @@
+{
+    "@@locale": "pt",
+    "settings": "Definições",
+    "theme": "Tema",
+    "selectTheme": "Selecionar tema da aplicação",
+    "lightMode": "Modo de luz",
+    "darkMode": "Modo escuro",
+    "systemDefault": "Padrão do sistema",
+    "language": "idioma",
+    "selectLanguage": "Selecione o idioma da aplicação",
+    "todoList": "Lista de tarefas",
+    "enterTask": "Inserir tarefa",
+    "editTask": "Editar tarefa",
+    "noTasks": "Ainda não há tarefa. Adicione uma nova tarefa para começar.",
+    "todo": "Tarefas"
+}

@@ -1,0 +1,16 @@
+{
+    "@@locale": "ro",
+    "settings": "Setări",
+    "theme": "Temă",
+    "selectTheme": "Selectați tema aplicației",
+    "lightMode": "Mod de lumină",
+    "darkMode": "Mod întunecat",
+    "systemDefault": "Implicit de sistem",
+    "language": "limba",
+    "selectLanguage": "Selectați limba aplicației",
+    "todoList": "Lista de sarcini",
+    "enterTask": "Introduceți sarcina",
+    "editTask": "Editați sarcina",
+    "noTasks": "Nu există încă sarcini. Adăugați o sarcină nouă pentru a începe.",
+    "todo": "Sarcini"
+}

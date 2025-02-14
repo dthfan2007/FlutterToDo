@@ -1,0 +1,16 @@
+{
+    "@@locale": "ko",
+    "settings": "설정",
+    "theme": "테마",
+    "selectTheme": "앱 테마 선택",
+    "lightMode": "밝은 모드",
+    "darkMode": "어두운 모드",
+    "systemDefault": "시스템 기본값",
+    "language": "언어",
+    "selectLanguage": "앱 언어 선택",
+    "todoList": "할 일 목록",
+    "enterTask": "작업 입력",
+    "editTask": "작업 편집",
+    "noTasks": "아직 작업이 없습니다. 시작하려면 새 작업을 추가하세요.",
+    "todo": "작업"
+}

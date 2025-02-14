@@ -1,0 +1,16 @@
+{
+    "@@locale": "zh_TW",
+    "settings": "設定",
+    "theme": "主題",
+    "selectTheme": "選擇一個主題",
+    "lightMode": "燈光模式",
+    "darkMode": "暗模式",
+    "systemDefault": "系統預設",
+    "language": "語言",
+    "selectLanguage": "選擇語言",
+    "todoList": "待辦事項清單",
+    "enterTask": "輸入新任務",
+    "editTask": "編輯此帖",
+    "noTasks": "尚無任務。新增任務即可開始。",
+    "todo": "待辦事項"
+}

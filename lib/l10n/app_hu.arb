@@ -1,0 +1,16 @@
+{
+    "@@locale": "hu",
+    "settings": "Beállítások elemre",
+    "theme": "Téma",
+    "selectTheme": "Válasszon témát",
+    "lightMode": "Világos téma",
+    "darkMode": "Sötét téma",
+    "systemDefault": "Rendszer alapértelmezett",
+    "language": "Nyelv",
+    "selectLanguage": "Válasszon nyelvet",
+    "todoList": "Teendők listája",
+    "enterTask": "Adjon meg új feladatot",
+    "editTask": "Szerkessze ezt a feladatot",
+    "noTasks": "Még nincsenek feladatok. A kezdéshez adjon hozzá új feladatot.",
+    "todo": "Feladatok"
+}

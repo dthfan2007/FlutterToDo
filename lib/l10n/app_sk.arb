@@ -1,0 +1,16 @@
+{
+    "@@locale": "sk",
+    "settings": "Nastavenia",
+    "theme": "Téma",
+    "selectTheme": "Vyberte tému aplikácie",
+    "lightMode": "Svetlý režim",
+    "darkMode": "Tmavý režim",
+    "systemDefault": "Predvolené systému",
+    "language": "jazyk",
+    "selectLanguage": "Vyberte jazyk aplikácie",
+    "todoList": "Zoznam úloh",
+    "enterTask": "Zadať úlohu",
+    "editTask": "Upraviť úlohu",
+    "noTasks": "Zatiaľ žiadne úlohy. Začnite pridaním novej úlohy.",
+    "todo": "Úlohy"
+}

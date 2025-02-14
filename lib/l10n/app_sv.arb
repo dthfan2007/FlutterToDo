@@ -1,0 +1,16 @@
+{
+    "@@locale": "sv",
+    "settings": "Inställningar",
+    "theme": "Tema",
+    "selectTheme": "Välj app-tema",
+    "lightMode": "Ljusläge",
+    "darkMode": "Mörkt läge",
+    "systemDefault": "Systemstandard",
+    "language": "språk",
+    "selectLanguage": "Välj appspråk",
+    "todoList": "Att göra Lista",
+    "enterTask": "Ange uppgift",
+    "editTask": "Redigera uppgift",
+    "noTasks": "Inga uppgifter ännu. Lägg till en ny uppgift för att komma igång.",
+    "todo": "Uppgifter"
+}

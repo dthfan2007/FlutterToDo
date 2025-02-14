@@ -1,0 +1,16 @@
+{
+    "@@locale": "fa",
+    "settings": "تنظیمات",
+    "theme": "موضوع",
+    "selectTheme": "انتخاب تم برنامه",
+    "lightMode": "حالت نور",
+    "darkMode": "حالت تاریک",
+    "systemDefault": "پیش فرض سیستم",
+    "language": "زبان",
+    "selectLanguage": "انتخاب زبان برنامه",
+    "todoList": "فهرست کارها",
+    "enterTask": "یک کار جدید وارد کنید",
+    "editTask": "ویرایش کار",
+    "noTasks": "هنوز هیچ کاری وجود ندارد. یک کار جدید برای شروع اضافه کنید.",
+    "todo": "وظایف"
+}

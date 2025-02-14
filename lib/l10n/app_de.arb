@@ -1,0 +1,16 @@
+{
+    "@@locale": "de",
+    "settings": "Einstellungen",
+    "theme": "Design",
+    "selectTheme": "Wählen sie ein Design aus",
+    "lightMode": "helles Design",
+    "darkMode": "dunkles Design",
+    "systemDefault": "Systemstandart",
+    "language": "Sprache",
+    "selectLanguage": "Wählen sie eine Sprache aus",
+    "todoList": "Todo Liste",
+    "enterTask": "Eine neue Aufgabe erstellen",
+    "editTask": "Aufgabe bearbeiten",
+    "noTasks": "Noch keine Aufgaben. Fügen sie eine hinzu, um zu beginnen",
+    "todo": "Aufgaben"
+}

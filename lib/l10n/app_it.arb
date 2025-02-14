@@ -1,0 +1,16 @@
+{
+    "@@locale": "it",
+    "settings": "Impostazioni",
+    "theme": "Design",
+    "selectTheme": "Seleziona un design",
+    "lightMode": "Modalità Luce",
+    "darkMode": "Modalità Scura",
+    "systemDefault": "Sistema Predefinito",
+    "language": "Lingua",
+    "selectLanguage": "Seleziona una lingua",
+    "todoList": "Lista To-Do",
+    "enterTask": "Inserisci un nuovo compito",
+    "editTask": "Modifica questo compito",
+    "noTasks": "Nessun compito ancora. Aggiungine uno per iniziare",
+    "todo": "To-Do"
+}

@@ -1,0 +1,16 @@
+{
+    "@@locale": "uz",
+    "settings": "Sozlamalar",
+    "theme": "mavzu",
+    "selectTheme": "Ilova mavzusini tanlang",
+    "lightMode": "Nur rejimi",
+    "darkMode": "Qorong'i rejim",
+    "systemDefault": "Tizim standarti",
+    "language": "Til",
+    "selectLanguage": "Ilova tilini tanlang",
+    "todoList": "Todo ro'yxati",
+    "enterTask": "Vazifani kiriting",
+    "editTask": "Vazifani tahrirlash",
+    "noTasks": "Hali hech qanday vazifa yo'q. Boshlash uchun yangi vazifa qo'shing.",
+    "todo": "Vazifalar"
+}

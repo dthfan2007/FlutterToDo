@@ -1,0 +1,16 @@
+{
+    "@@locale": "sq",
+    "settings": "Cilësimet",
+    "theme": "Tema",
+    "selectTheme": "Zgjidh temën e aplikacionit",
+    "lightMode": "Modaliteti i dritës",
+    "darkMode": "Modaliteti i errët",
+    "systemDefault": "Parazgjedhja sistemit",
+    "language": "gjuhë",
+    "selectLanguage": "Zgjidh gjuhën e aplikacionit",
+    "todoList": "Lista e detyrave",
+    "enterTask": "Fut detyrën",
+    "editTask": "Ndrysho detyrën",
+    "noTasks": "Nuk ka ende detyra. Shto një detyrë të re për të filluar.",
+    "todo": "Detyrat"
+}

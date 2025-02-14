@@ -1,0 +1,16 @@
+{
+    "@@locale": "fi",
+    "settings": "Asetukset",
+    "theme": "Teema",
+    "selectTheme": "Valitse sovelluksen teema",
+    "lightMode": "Kevyt tila",
+    "darkMode": "Dark Mode",
+    "systemDefault": "Järjestelmän oletus",
+    "language": "kieli",
+    "selectLanguage": "Valitse sovelluksen kieli",
+    "todoList": "Todo List",
+    "enterTask": "Syötä tehtävä",
+    "editTask": "Muokkaa tehtävää",
+    "noTasks": "Ei vielä tehtäviä. Aloita lisäämällä uusi tehtävä.",
+    "todo": "Tehtävät"
+}
