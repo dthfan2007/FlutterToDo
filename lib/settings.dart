@@ -1,8 +1,21 @@
+/// settings.dart
+///
+/// Author: Matteo Cipriani
+/// Created: 2025-02-18
+/// Description: This file is the settings tab for the Flutter application.
+/// It contains the settings for Theme and Language
+///
+/// Version: Beta 2.5.2
+/// Latest Change: Added more locales
+
+//# region [Section 1] Imports
+// MARK: Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_todo/main.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//# endregion
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 
@@ -19,6 +32,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
     _loadThemeMode();
   }
 
+  //# region [Section 2] Setup
+  // MARK: Setup
   ThemeMode _getThemeModeFromString(String themeMode) {
     switch (themeMode) {
       case 'light':
@@ -43,25 +58,36 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await prefs.setString('themeMode', mode.toString().split('.').last);
   }
 
+  //# endregion
+  //# region [Section 3] Build Widget
+  // MARK: Build Widget
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l10n.settings),
+        title: Text(
+          l10n.settings,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+        ),
         centerTitle: true,
       ),
       body: ListView(
         children: [
+          //# region [Section 4] Theme Setting
+          // MARK: Theme Setting
           ListTile(
             leading: const Icon(Icons.brightness_6),
-            title: Text(l10n.theme),
+            title: Text(
+              l10n.theme,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(l10n.selectTheme),
-                DropdownButton<ThemeMode>(
+                DropdownButtonFormField<ThemeMode>(
                   value: _selectedThemeMode,
                   onChanged: (ThemeMode? newValue) {
                     if (newValue != null) {
@@ -72,6 +98,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       TodoApp.of(context).changeTheme(newValue);
                     }
                   },
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+                  ),
                   items: [
                     DropdownMenuItem(
                       value: ThemeMode.light,
@@ -86,24 +116,40 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       child: Text(l10n.systemDefault),
                     ),
                   ],
+                  iconSize: 30,
+                  iconEnabledColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Colors.tealAccent
+                          : Colors.blue,
+                  iconDisabledColor: Colors.grey,
                 ),
               ],
             ),
           ),
+          //# endregion
+          //# region [Section 5] Language Setting
+          // MARK: Language Setting
           ListTile(
             leading: const Icon(Icons.language),
-            title: Text(l10n.language),
+            title: Text(
+              l10n.language,
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(l10n.selectLanguage),
-                DropdownButton<Locale>(
+                DropdownButtonFormField<Locale>(
                   value: Localizations.localeOf(context),
                   onChanged: (Locale? newValue) {
                     if (newValue != null) {
                       TodoApp.of(context).changeLocale(newValue);
                     }
                   },
+                  decoration: InputDecoration(
+                    contentPadding:
+                        EdgeInsets.symmetric(vertical: 16, horizontal: 0),
+                  ),
                   items: const [
                     DropdownMenuItem(
                       value: Locale('cs'),
@@ -329,14 +375,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       value: Locale('ko'),
                       child: Text('한국어'),
                     ),
-                    // Add more languages here
                   ],
+                  iconSize: 30,
+                  iconEnabledColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Colors.tealAccent
+                          : Colors.blue,
+                  iconDisabledColor: Colors.grey,
                 ),
               ],
             ),
           ),
+          //# endregion
         ],
       ),
     );
   }
+  //# endregion
 }

@@ -1,8 +1,20 @@
+/// main.dart
+///
+/// Author: Matteo Cipriani
+/// Created: 2025-02-18
+/// Description: This file contains the actual todo list screen.
+///
+/// Version: Beta 2.1.1
+/// Latest Change: Added Localization to texts
+
+//# region [Section 1] Imports
+// MARK: Imports
 import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Add this import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+//# endregion
 class TodoHome extends StatefulWidget {
   const TodoHome({super.key});
 
@@ -15,7 +27,8 @@ class _TodoHomeState extends State<TodoHome> {
   final List<Map<String, dynamic>> _tasks = [];
   late DatabaseHelper _dbHelper;
   int? _editingTaskId;
-
+  //# region [Section 2] Local functions
+  // MARK: Functions
   @override
   void initState() {
     super.initState();
@@ -90,15 +103,18 @@ class _TodoHomeState extends State<TodoHome> {
     });
   }
 
+  //# endregion
+  //# region [Section 3] App Widget
+  // MARK: Build Widget
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!; // Access the localization
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
+      // MARK: App Bar
       appBar: AppBar(
         title: Text(l10n.todoList,
-            style: const TextStyle(
-                fontWeight: FontWeight.bold)), // Localized title
+            style: const TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         backgroundColor: Theme.of(context).brightness == Brightness.dark
             ? Colors.tealAccent[700]
@@ -108,12 +124,13 @@ class _TodoHomeState extends State<TodoHome> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           children: [
+            //# region [Section 4] Input Field
+            // MARK: Input Field
             TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: _editingTaskId != null
-                    ? l10n.editTask
-                    : l10n.enterTask, // Localized text
+                labelText:
+                    _editingTaskId != null ? l10n.editTask : l10n.enterTask,
                 labelStyle: TextStyle(
                   color: Theme.of(context).brightness == Brightness.dark
                       ? Colors.tealAccent
@@ -166,13 +183,15 @@ class _TodoHomeState extends State<TodoHome> {
                 }
               },
             ),
+            //# endregion
+            //# region [Section 5] Task List
+            // MARK: Task List
             const SizedBox(height: 12),
             Expanded(
               child: _tasks.isEmpty
                   ? Center(
                       child: Text(l10n.noTasks,
-                          style: const TextStyle(
-                              fontSize: 16)), // Localized no tasks message
+                          style: const TextStyle(fontSize: 16)),
                     )
                   : ListView.builder(
                       itemCount: _tasks.length,
@@ -220,6 +239,8 @@ class _TodoHomeState extends State<TodoHome> {
                                     : null,
                               ),
                             ),
+                            //# region [Section 6] Icons
+                            // MARK: Icons
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -238,20 +259,23 @@ class _TodoHomeState extends State<TodoHome> {
                                 ),
                               ],
                             ),
+                            //# endregion
                           ),
                         );
                       },
                     ),
             ),
+            //# endregion
           ],
         ),
       ),
     );
   }
+  //# endregion
 }
 
-// Rest of the code remains the same
-
+// region [Section 7] Database
+// MARK: Database
 class DatabaseHelper {
   static const String tableName = 'tasks';
 
@@ -301,3 +325,4 @@ class DatabaseHelper {
     );
   }
 }
+//# endregion

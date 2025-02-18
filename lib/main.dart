@@ -1,3 +1,15 @@
+/// main.dart
+///
+/// Author: Matteo Cipriani
+/// Created: 2025-02-18
+/// Description: This file contains the main entry point for the Flutter app.
+/// It initializes the app and sets up the home screen.
+///
+/// Version: Beta 2.1.1
+/// Latest Change: Added Localization to texts
+
+//# region [Section 1] Imports
+// MARK: Imports
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -5,6 +17,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'todo_home.dart';
 import 'settings.dart';
 
+//# endregion
+
+//# region [Section 2] Setup
+// MARK: Setup
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
@@ -35,10 +51,12 @@ class TodoApp extends StatefulWidget {
       context.findAncestorStateOfType<_TodoAppState>()!;
 }
 
+//# endregion
 class _TodoAppState extends State<TodoApp> {
   late ThemeMode _themeMode;
-  Locale _locale = Locale('te'); // Default locale
-
+  Locale _locale = Locale('te');
+  //# region [Section 3] Functions
+  // MARK: Functions
   @override
   void initState() {
     super.initState();
@@ -48,8 +66,7 @@ class _TodoAppState extends State<TodoApp> {
 
   Future<void> _loadSavedLocale() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedLocale =
-        prefs.getString('locale') ?? 'te'; // Default to 'en' if not found
+    final savedLocale = prefs.getString('locale') ?? 'te';
     setState(() {
       _locale = Locale(savedLocale);
     });
@@ -63,13 +80,15 @@ class _TodoAppState extends State<TodoApp> {
 
   void changeLocale(Locale locale) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setString(
-        'locale', locale.languageCode); // Save the locale code
+    await prefs.setString('locale', locale.languageCode);
     setState(() {
       _locale = locale;
     });
   }
+  //# endregion
 
+  //# region [Section 4] Initialization
+  // MARK: Init Theme
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -87,7 +106,8 @@ class _TodoAppState extends State<TodoApp> {
         shadowColor: Colors.white24,
       ),
       themeMode: _themeMode,
-      locale: _locale, // Set the locale here
+      // MARK: Init Locales
+      locale: _locale,
       supportedLocales: const [
         Locale('te'),
         Locale('ar'),
@@ -154,8 +174,10 @@ class _TodoAppState extends State<TodoApp> {
       home: const MainScreen(),
     );
   }
+  //# endregion
 }
 
+//# region [Section 5] Build App Widget
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
@@ -176,10 +198,10 @@ class _MainScreenState extends State<MainScreen> {
     });
   }
 
+  // MARK: Build Widget
   @override
   Widget build(BuildContext context) {
-    // Correct usage of AppLocalizations
-    final l10n = AppLocalizations.of(context); // Get the localized strings
+    final l10n = AppLocalizations.of(context);
 
     return Scaffold(
       body: _screens[_selectedIndex],
@@ -187,11 +209,11 @@ class _MainScreenState extends State<MainScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: const Icon(Icons.list),
-            label: l10n!.todo, // Use localized string here
+            label: l10n!.todo,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.settings),
-            label: l10n.settings, // Use localized string here
+            label: l10n.settings,
           ),
         ],
         currentIndex: _selectedIndex,

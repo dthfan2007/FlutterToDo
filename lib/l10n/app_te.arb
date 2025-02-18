@@ -1,6 +1,6 @@
 {
     "@@locale": "te",
-    "settings": "paryâť'",
+    "settings": "Paryâť'",
     "theme": "Farĥa-tači",
     "selectTheme": "Vil uštez biť'e sentaku Farĥa-tači",
     "lightMode": "Qk'irkasfarĥa-tači",
@@ -11,6 +11,6 @@
     "todoList": "Sûrunaìkinai-koto-tači tuʋã",
     "enterTask": "Neõ sûrunaìkinai-koto kaku",
     "editTask": "Afto sûrunaìkinai-koto kaĥițź",
-    "noTasks": "Sûrunaìkinai-koto madanaì. Naŝ'e neõ kakunai?",
+    "noTasks": "Sûrunaìkinai-koto mada naì. Naŝ'e neõ kakunai?",
     "todo": "Sûrunaìkinai-koto-tači"
 }
