@@ -1,7 +1,7 @@
 {
     "@@locale": "uz",
     "settings": "Sozlamalar",
-    "theme": "mavzu",
+    "theme": "Mavzu",
     "selectTheme": "Ilova mavzusini tanlang",
     "lightMode": "Nur rejimi",
     "darkMode": "Qorong'i rejim",
