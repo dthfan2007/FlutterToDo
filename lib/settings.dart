@@ -34,6 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   //# region [Section 2] Setup
   // MARK: Setup
+  // Return saved theme mode
   ThemeMode _getThemeModeFromString(String themeMode) {
     switch (themeMode) {
       case 'light':
@@ -47,7 +48,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   void _loadThemeMode() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedThemeMode = prefs.getString('themeMode') ?? 'system';
+    final savedThemeMode = prefs.getString('themeMode') ??
+        'system'; // Load previously saved theme mode, return system in case it returns 'null'
     setState(() {
       _selectedThemeMode = _getThemeModeFromString(savedThemeMode);
     });
@@ -66,6 +68,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
+      // Title bar
       appBar: AppBar(
         title: Text(
           l10n.settings,
@@ -150,6 +153,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     contentPadding:
                         EdgeInsets.symmetric(vertical: 16, horizontal: 0),
                   ),
+                  // Dropdown menu for all supported locales
                   items: const [
                     DropdownMenuItem(
                       value: Locale('cs'),

@@ -24,10 +24,12 @@ import 'settings.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
-  final savedThemeMode = prefs.getString('themeMode') ?? 'system';
+  final savedThemeMode = prefs.getString('themeMode') ??
+      'system'; // Load previously saved theme mode, set to default in case it returns 'null'
   runApp(TodoApp(initialThemeMode: _getThemeModeFromString(savedThemeMode)));
 }
 
+// Returns the theme mode for other LOC to use it
 ThemeMode _getThemeModeFromString(String themeMode) {
   switch (themeMode) {
     case 'light':
@@ -39,6 +41,7 @@ ThemeMode _getThemeModeFromString(String themeMode) {
   }
 }
 
+// Initialize the application
 class TodoApp extends StatefulWidget {
   final ThemeMode initialThemeMode;
 
@@ -66,7 +69,8 @@ class _TodoAppState extends State<TodoApp> {
 
   Future<void> _loadSavedLocale() async {
     final prefs = await SharedPreferences.getInstance();
-    final savedLocale = prefs.getString('locale') ?? 'te';
+    final savedLocale = prefs.getString('locale') ??
+        'te'; // Load previously saved locale, set to 'te' if it returns 'null'
     setState(() {
       _locale = Locale(savedLocale);
     });
@@ -78,6 +82,7 @@ class _TodoAppState extends State<TodoApp> {
     });
   }
 
+  // Update locale upon new selection by user
   void changeLocale(Locale locale) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('locale', locale.languageCode);
@@ -94,6 +99,7 @@ class _TodoAppState extends State<TodoApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'To-Do App',
+      // Initialize themes
       theme: ThemeData.light(useMaterial3: true)
           .copyWith(colorScheme: ColorScheme.light(primary: Colors.blue)),
       darkTheme: ThemeData.dark(useMaterial3: true).copyWith(
@@ -108,6 +114,7 @@ class _TodoAppState extends State<TodoApp> {
       themeMode: _themeMode,
       // MARK: Init Locales
       locale: _locale,
+      // List the codes of supported locales
       supportedLocales: const [
         Locale('te'),
         Locale('ar'),
@@ -202,7 +209,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-
+    // Bottom Navigation Bar
     return Scaffold(
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

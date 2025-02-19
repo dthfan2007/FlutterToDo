@@ -36,8 +36,10 @@ class _TodoHomeState extends State<TodoHome> {
     _loadTasks();
   }
 
+  // Load all tasks and display them, non-completed tasks at the top
   Future<void> _loadTasks() async {
     List<Map<String, dynamic>> tasks = await _dbHelper.getTasks();
+    // Update screen
     setState(() {
       _tasks
         ..clear()
@@ -50,9 +52,11 @@ class _TodoHomeState extends State<TodoHome> {
     });
   }
 
+  // Add a new task
   void _addTask(String task) async {
     if (task.isNotEmpty) {
       int id = await _dbHelper.insertTask({'task': task, 'completed': 0});
+      // Update screen
       setState(() {
         _tasks.add({'id': id, 'task': task, 'completed': false});
       });
@@ -60,6 +64,7 @@ class _TodoHomeState extends State<TodoHome> {
     }
   }
 
+  // Toggle the completion status of a task
   void _toggleTask(int index) async {
     int taskId = _tasks[index]['id'];
     bool newStatus = !_tasks[index]['completed'];
@@ -67,9 +72,11 @@ class _TodoHomeState extends State<TodoHome> {
     _loadTasks();
   }
 
+  // Delete a task
   void _deleteTask(int index) async {
     int taskId = _tasks[index]['id'];
     await _dbHelper.deleteTask(taskId);
+    // Update screen
     setState(() {
       _tasks.removeAt(index);
       if (_editingTaskId == taskId) {
@@ -78,12 +85,14 @@ class _TodoHomeState extends State<TodoHome> {
     });
   }
 
+  // Update a task (after editing)
   void _updateTask() async {
     if (_controller.text.isNotEmpty && _editingTaskId != null) {
       final taskIndex =
           _tasks.indexWhere((task) => task['id'] == _editingTaskId);
       if (taskIndex != -1) {
         await _dbHelper.updateTaskStatus(_editingTaskId!, true);
+        // Update screen
         setState(() {
           _tasks[taskIndex]['task'] = _controller.text;
           _editingTaskId = null;
@@ -96,6 +105,7 @@ class _TodoHomeState extends State<TodoHome> {
     }
   }
 
+  // Edit a task
   void _editTask(int index) {
     setState(() {
       _editingTaskId = _tasks[index]['id'];
@@ -112,6 +122,7 @@ class _TodoHomeState extends State<TodoHome> {
 
     return Scaffold(
       // MARK: App Bar
+      // Title bar
       appBar: AppBar(
         title: Text(l10n.todoList,
             style: const TextStyle(fontWeight: FontWeight.bold)),
@@ -241,6 +252,7 @@ class _TodoHomeState extends State<TodoHome> {
                             ),
                             //# region [Section 6] Icons
                             // MARK: Icons
+                            // Icons on the right side of every task to edit / delete it
                             trailing: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -276,9 +288,11 @@ class _TodoHomeState extends State<TodoHome> {
 
 // region [Section 7] Database
 // MARK: Database
+// Database Functions
 class DatabaseHelper {
   static const String tableName = 'tasks';
 
+  // Load database, create it if it doesn't exist
   Future<Database> _getDatabase() async {
     final path = join(await getDatabasesPath(), 'tasks.db');
     return openDatabase(
@@ -296,16 +310,19 @@ class DatabaseHelper {
     );
   }
 
+  // Insert a new task into the database
   Future<int> insertTask(Map<String, dynamic> task) async {
     final db = await _getDatabase();
     return await db.insert(tableName, task);
   }
 
+  // Load all tasks from the database
   Future<List<Map<String, dynamic>>> getTasks() async {
     final db = await _getDatabase();
     return await db.query(tableName);
   }
 
+  // Update a task's status in the database
   Future<int> updateTaskStatus(int id, bool completed) async {
     final db = await _getDatabase();
     return await db.update(
