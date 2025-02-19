@@ -30,7 +30,6 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
 
 # Symbolication related
 app.*.symbols
@@ -42,7 +41,23 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-
+/build/465c96f63528c375eadc3160f3b5d846
+/build/b18191054b7e296b4379e9085d256a59
+/build/native_assets
+/build/shared_preferences_android
+/build/sqflite_android
+/build/path_provider_android
+/build/.last_build_id
+/build/cache.dill.track.dill
+/build/app/generated
+/build/app/intermediates
+/build/app/kotlin
+/build/app/kotlinToolingMetadata
+/build/app/tmp
+/build/app/outputs/apk
+/build/app/outputs/logs
+/build/app/outputs/mapping
+/build/app/outputs/sdk-dependencies
+/build/app/outputs/flutter-apk/app-release.apk.sha1
 # Unneccessary files
 HO_day_plan.md
